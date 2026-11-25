@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import '../../core/theme/app_colors.dart';
+
+class GoogleButton extends StatelessWidget {
+  const GoogleButton({super.key, required this.label, required this.onPressed});
+
+  final String label;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 48,
+      child: OutlinedButton(
+        onPressed: onPressed,
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.white,
+          foregroundColor: AppColors.textPrimary,
+          side: const BorderSide(color: AppColors.inputBorder),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/icons/google.png', width: 24, height: 24),
+            const SizedBox(width: 10),
+            Text(label),
+          ],
+        ),
+      ),
+    );
+  }
+}

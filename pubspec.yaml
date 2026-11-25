@@ -1,0 +1,36 @@
+name: budgetin_mobile
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^5.2.1
+  cupertino_icons: ^1.0.8
+  dio: ^5.11.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - .env
+    - assets/images/
+    - assets/icons/
+    
+  fonts:
+    - family: PlusJakartaSans
+      fonts:
+        - asset: assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf
+        - asset: assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Italic-VariableFont_wght.ttf
+          style: normal
