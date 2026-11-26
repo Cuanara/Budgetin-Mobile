@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/theme/app_colors.dart';
 
 class AuthCheckbox extends StatelessWidget {
@@ -36,7 +37,7 @@ class AuthCheckbox extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          child,
+          Flexible(child: child),
         ],
       ),
     );
