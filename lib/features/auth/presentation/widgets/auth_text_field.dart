@@ -10,14 +10,18 @@ class AuthTextField extends StatefulWidget {
     this.hasError = false,
     this.errorText,
     this.keyboardType,
+    this.prefixIcon,
+    this.hintText,
   });
 
   final String label;
   final TextEditingController? controller;
   final bool isPassword;
-  final bool hasError;          // merah tanpa teks (kasus login gagal)
-  final String? errorText;      // merah + teks di bawah field
+  final bool hasError;
+  final String? errorText;
   final TextInputType? keyboardType;
+  final IconData? prefixIcon;
+  final String? hintText;
 
   @override
   State<AuthTextField> createState() => _AuthTextFieldState();
@@ -52,8 +56,13 @@ class _AuthTextFieldState extends State<AuthTextField> {
           controller: widget.controller,
           keyboardType: widget.keyboardType,
           obscureText: widget.isPassword && _obscure,
-          style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
+          style: const TextStyle(fontSize: 13, color: AppColors.textPrimary),
           decoration: InputDecoration(
+            hintText: widget.hintText,
+            hintStyle: const TextStyle(
+              fontSize: 13,
+              color: AppColors.textSecondary,
+            ),
             filled: true,
             fillColor: isError ? AppColors.errorBg : AppColors.inputFill,
             contentPadding:
@@ -66,6 +75,13 @@ class _AuthTextFieldState extends State<AuthTextField> {
               isError ? AppColors.error : AppColors.primary,
               width: 1.5,
             ),
+            prefixIcon: widget.prefixIcon == null
+                ? null
+                : Icon(
+                    widget.prefixIcon,
+                    size: 18,
+                    color: AppColors.textSecondary,
+                  ),
             suffixIcon: widget.isPassword
                 ? IconButton(
                     onPressed: () => setState(() => _obscure = !_obscure),
